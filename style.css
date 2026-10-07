@@ -1,4 +1,4 @@
-/* ---------- Design tokens ---------- */
+/* ------------------------------------------------ Design tokens ----------------------------------------------------- */
 :root {
     --night: #0c1024; /* page background */
     --dusk: #1b2150; /*nav background*/
@@ -8,7 +8,7 @@
     --radius: 14px;
   }
   
-  /* ---------- TAG STYLING (requirement: 3+) ---------- */
+  /* ----------------------------------------------- TAG STYLING ------------------------------------------------------ */
   * { box-sizing: border-box; }
   
   body {
@@ -49,7 +49,7 @@
   
   :focus-visible { outline: 3px solid var(--solar); outline-offset: 3px; }
   
-  /* ---------- Layout basics ---------- */
+  /* ------------------------------------------------ Layout basics --------------------------------------------------- */
   header { padding: 2rem 1.25rem 1rem; text-align: center; }
   header p { margin: .25rem 0 0; opacity: .8; }
   
@@ -58,7 +58,7 @@
   
   footer { text-align: center; padding: 2rem 1rem; background: var(--dusk); }
   
-  /* ---------- GRID NAV ---------- */
+  /* -------------------------------------------------- GRID NAV ------------------------------------------------------ */
   nav {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -77,7 +77,7 @@
   }
   nav a:hover { background: var(--solar); color: var(--night); }
   
-  /* ---------- CLASSES (requirement: 3+) ---------- */
+  /* ------------------------------------------- CLASSES (requirement: 3+) -------------------------------------------- */
   .btn {
     display: inline-block;
     padding: .7rem 1.4rem;
@@ -94,21 +94,82 @@
   
   .hero-text p { max-width: 60ch; }
   
+  /* ----------- The Planet Cards --------------------- */
   .planet-card {
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    display: grid;                     
+    transform-style: preserve-3d;
+    transition: transform .7s;
+  }
+
+  .planet-card.flipped .card-inner { transform: rotateY(180deg); }
+   
+  .card-front,
+  .card-back {
+    grid-area: 1 / 1;
     background: var(--dusk);
     border-radius: var(--radius);
     padding: 1rem;
-    cursor: pointer;
     border: 1px solid transparent;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: border-color .2s, box-shadow .2s;
   }
-  .planet-card:hover { border-color: var(--ion); box-shadow: 0 0 22px rgba(111, 227, 212, .3); }
+
+  .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-back ul { padding-left: 1.1rem; margin: 0; }
+  .card-back li { margin-bottom: .5rem; }
+   
+  .planet-card:hover .card-front,
+  .planet-card:hover .card-back {
+    border-color: var(--ion);
+    box-shadow: 0 0 22px rgba(111, 227, 212, .3);
+  }
+
   .planet-card figcaption { font-family: "Syne", sans-serif; font-weight: 800; margin-top: .6rem; }
+
   .planet-card .tagline { margin: .2rem 0 0; opacity: .8; }
-  .planet-card .details { display: none; margin-top: .6rem; font-size: .9rem; }
-  .planet-card.open .details { display: block; } /* JS toggles .open */
-  .planet-card ul { padding-left: 1.1rem; margin: 0; }
   
+  /* Square cards: the image stretches to fill whatever space the text leaves */
+  .planet-card { aspect-ratio: 1 / 1; }
+  .card-inner { height: 100%; }
+
+  .card-front { display: flex; flex-direction: column; }
+
+  .card-front figure {
+    position: relative;   
+    margin: 0;
+    flex: 1;
+    min-height: 0;
+  }
+  .card-front img {
+    position: absolute;   
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-front figcaption {   /* planet name sits over the bottom of the image */
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    margin: 0;
+    padding: 1.5rem .75rem .5rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    background: linear-gradient(transparent, rgba(12, 16, 36, .85));
+  }
+
+  .card-back { overflow: auto; }
+
   .fact-tile {
     background: var(--dusk);
     border-radius: var(--radius);
@@ -117,6 +178,7 @@
   .fact-tile.highlight { background: var(--solar); color: var(--night); }
   .fact-tile.highlight .btn { background: var(--night); color: var(--chalk); }
   
+  /* -------------------------------------------- Planet Calculator ----------------------------------------------------*/
   .calc-box {
     display: grid;
     gap: .6rem;
@@ -131,31 +193,35 @@
     border: 0;
   }
   #calc-result { font-weight: 700; color: var(--solar); min-height: 1.5em; margin: 0; }
-  
-  /* ---------- GRID SECTION 1: planets ---------- */
+  /* -------------------------------------------- Planet Calculator ----------------------------------------------------*/
+
+  /* ------------------------------------- GRID SECTION 1: planets ---------------------------------------------------- */
   .planet-grid {
+    --card-size: 180px;   
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, var(--card-size));
+    justify-content: center;
     gap: 1.25rem;
   }
   
-  /* ---------- GRID SECTION 2: facts (different layout) ---------- */
+  /* ------------------------------ GRID SECTION 2: facts (different layout/different font) --------------------------- */
   .facts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .facts-grid .wide { grid-column: span 2; }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.facts-grid .wide { grid-column: span 2; }
+
   
   #facts h2,
   #facts h3,
    footer {
-    font-family: "Fraunces", serif;
+    font-family: "Space-Mono", serif;
     }
 
-#facts p {
-  font-family: "Lora", serif;
-}
+  #facts p {
+    font-family: "Space-Mono", serif;
+  }
   /* ---------- Hero (also a grid) ---------- */
   #hero {
     display: grid;
@@ -166,7 +232,7 @@
   .hero-figure { margin: 0; }
   .hero-figure figcaption { font-size: .8rem; opacity: .7; margin-top: .4rem; }
   
-  /* ---------- RESPONSIVE ---------- */
+  /* --------------------------- Change of Screen Size for Different Devices/Window Size ------------------------------ */
   @media (max-width: 768px) {
     nav { grid-template-columns: repeat(3, 1fr); }
     #hero { grid-template-columns: 1fr; }
@@ -180,6 +246,7 @@
     .facts-grid .wide { grid-column: auto; }
   }
   
+  /* ADA Compliant ? Meant to help people who don't want the motion/ have reduced motion settings on */
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
   }

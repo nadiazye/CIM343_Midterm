@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset = "UTF-8">
+  <meta name = "viewport" content = "width=device-width, initial-scale=1">
   <title>Space Explorer | Tour the Solar System</title>
-  <meta name="description" content="Explore the eight planets, compare your weight on each, and learn surprising space facts.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;800&family=Lora:wght@400;500&family=Syne:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="activity.js" defer></script>
+  <meta name = "Space website" content = "Explore the eight planets. Facts and images, courtesy of NASA">
+  <!------------------------------------------ Fonts Inserts ------------------------------------------------->
+  <link rel = "preconnect" href = "https://fonts.googleapis.com">
+  <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+  <link href = "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;800&family=Lora:wght@400;500&family=Syne:wght@600;800&display=swap" rel = "stylesheet">
+  
+  <!------------------------------------ Script Additions (Style and JS)-------------------------------------->
+  <link rel = "stylesheet" href = "style.css">
+  <script src = "activity.js" defer></script>
 </head>
 
 
@@ -21,221 +24,258 @@
     <p>Eight worlds. So little time.</p>
   </header>
 
-  <!-- GRID NAV -->
-  <nav aria-label="Main navigation">
-    <a href="#hero">Home</a>
-    <a href="#planets">Planets</a>
-    <a href="#calculator">Weight</a>
-    <a href="#facts">Facts</a>
-    <a href="#footer">Credits</a>
+  <!---------------------------------------------- GRID NAV ---------------------------------------------------------->
+  <nav aria-label = "Main navigation">
+    <a href = "#hero">Home</a>
+    <a href = "#planets">Planets</a>
+    <a href = "#calculator">Weight</a>
+    <a href = "#facts">Facts</a>
+    <a href = "#footer">Credits</a>
   </nav>
 
   <main>
 
-    <section id="hero">
-      <div class="hero-text">
-        <h2>Pick a planet. See how it feels to stand there.</h2>
+    <section id = "hero">
+      <div class = "hero-text">
+        <h2>Pick a planet. Read facts and feel like you're there.</h2>
         <p>Browse the solar system, tap a card for the details, and find out what you would weigh on every world.</p>
-        <a class="btn" href="#planets">Start exploring</a>
+        <a class = "btn" href = "#planets">Start exploring</a>
       </div>
-      <figure class="hero-figure">
 
+      <figure class = "hero-figure">
         <!-- Image 1: hero (nebula or galaxy) -->
-        <img src="images/hero-nebula.jpg" alt="A colorful nebula glowing against dark space" width="800" height="500">
-        <figcaption>Image: NASA</figcaption>
+        <img src = "images/hero-nebula.jpg" alt = "A colorful nebula glowing against dark space" width = "800" height = "500">
+        <figcaption>Image: A nebula in the galaxy named Hero, courtesy of NASA.</figcaption>
       </figure>
     </section>
 
-    <!-- GRID SECTION 1: planet cards -->
-    <section id="planets">
-      <h2>The Planets</h2>
-      <div class="planet-grid">
-
-        <!-- Copy this article for each planet. Images 2-9. -->
-        <article class="planet-card" data-planet="mercury">
-          <figure>
-            <img src="images/mercury.jpg" alt="Mercury, a small grey cratered planet" width="400" height="400">
-            <figcaption>Mercury</figcaption>
-          </figure>
-          <p class="tagline">The fast, scorched one.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 58 million km</li>
-              <li>Moons: 0</li>
-              <li>Day length: 59 Earth days</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="venus">
-          <figure>
-            <img src="images/venus.jpg" alt="Venus, a planet wrapped in thick pale clouds" width="400" height="400">
-            <figcaption>Venus</figcaption>
-          </figure>
-          <p class="tagline">Hotter than Mercury.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 108 million km</li>
-              <li>Moons: 0</li>
-              <li>Day length: 243 Earth days</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="earth">
-          <figure>
-            <img src="images/earth.jpg" alt="Earth, a blue planet with white clouds" width="400" height="400">
-            <figcaption>Earth</figcaption>
-          </figure>
-          <p class="tagline">Home base.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 150 million km</li>
-              <li>Moons: 1</li>
-              <li>Day length: 24 hours</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="mars">
-          <figure>
-            <img src="images/mars.jpg" alt="Mars, a rusty red planet" width="400" height="400">
-            <figcaption>Mars</figcaption>
-          </figure>
-          <p class="tagline">The rusty neighbor.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 228 million km</li>
-              <li>Moons: 2</li>
-              <li>Day length: 24.6 hours</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="jupiter">
-          <figure>
-            <img src="images/jupiter.jpg" alt="Jupiter, a giant banded planet with a red storm" width="400" height="400">
-            <figcaption>Jupiter</figcaption>
-          </figure>
-          <p class="tagline">Big enough for every other planet.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 778 million km</li>
-              <li>Moons: 95 and counting</li>
-              <li>Day length: 10 hours</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="saturn">
-          <figure>
-            <img src="images/saturn.jpg" alt="Saturn with its wide icy rings" width="400" height="400">
-            <figcaption>Saturn</figcaption>
-          </figure>
-          <p class="tagline">Light enough to float.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 1.4 billion km</li>
-              <li>Moons: 146 and counting</li>
-              <li>Day length: 10.7 hours</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="uranus">
-          <figure>
-            <img src="images/uranus.jpg" alt="Uranus, a pale blue-green planet" width="400" height="400">
-            <figcaption>Uranus</figcaption>
-          </figure>
-          <p class="tagline">Rolls around on its side.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 2.9 billion km</li>
-              <li>Moons: 28</li>
-              <li>Day length: 17 hours</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="planet-card" data-planet="neptune">
-          <figure>
-            <img src="images/neptune.jpg" alt="Neptune, a deep blue planet" width="400" height="400">
-            <figcaption>Neptune</figcaption>
-          </figure>
-          <p class="tagline">Windy and far away.</p>
-          <div class="details">
-            <ul>
-              <li>Distance from Sun: 4.5 billion km</li>
-              <li>Moons: 16</li>
-              <li>Day length: 16 hours</li>
-            </ul>
-          </div>
-        </article>
-
+    <!-------------------------------------- GRID SECTION 1: planet cards ---------------------------------------------->
+    <article class = "planet-card" data-planet = "mercury">
+      <div class = "card-inner">
+        <div class = "card-front">
+        <figure>
+        <img src = "images/mercury.jpg" alt = "Mercury, a small grey cratered planet" width = "400" height = "400">
+        <figcaption>Mercury</figcaption>
+        </figure>
+          <p class = "tagline">The fast, scorched one.</p>
+        </div>
+        <div class = "card-back">
+          <h3>Mercury</h3>
+          <ul>
+          <li>Distance from Sun: 58 million km</li>
+          <li>Moons: 0</li>
+          <li>Day length: 59 Earth days</li>
+        </ul>
+        </div>
       </div>
-    </section>
+    </article>
 
-    <section id="calculator">
+    <article class = "planet-card" data-planet = "venus">
+      <div class = "card-inner">
+        <div class = "card-front">
+          <figure>
+        <img src = "images/venus.jpg" alt = "Venus, a planet wrapped in thick pale clouds" width = "400" height = "400">
+        <figcaption>Venus</figcaption>
+      </figure>
+          <p class="tagline">Hotter than Mercury.</p>
+        </div>
+        <div class="card-back">
+          <h3>Venus</h3>
+          <ul>
+          <li>Distance from Sun: 108 million km</li>
+          <li>Moons: 0</li>
+          <li>Day length: 243 Earth days</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="earth">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/earth.jpg" alt="Earth, a blue planet with white clouds" width="400" height="400">
+        <figcaption>Earth</figcaption>
+      </figure>
+          <p class="tagline">Home base.</p>
+        </div>
+        <div class="card-back">
+          <h3>Earth</h3>
+          <ul>
+          <li>Distance from Sun: 150 million km</li>
+          <li>Moons: 1</li>
+          <li>Day length: 24 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="mars">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/mars.jpg" alt="Mars, a rusty red planet" width="400" height="400">
+        <figcaption>Mars</figcaption>
+      </figure>
+          <p class="tagline">The rusty neighbor.</p>
+        </div>
+        <div class="card-back">
+          <h3>Mars</h3>
+          <ul>
+          <li>Distance from Sun: 228 million km</li>
+          <li>Moons: 2</li>
+          <li>Day length: 24.6 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="jupiter">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/jupiter.jpg" alt="Jupiter, a giant banded planet with a red storm" width="400" height="400">
+        <figcaption>Jupiter</figcaption>
+      </figure>
+          <p class="tagline">Big enough for every other planet.</p>
+        </div>
+        <div class="card-back">
+          <h3>Jupiter</h3>
+          <ul>
+          <li>Distance from Sun: 778 million km</li>
+          <li>Moons: 95 and counting</li>
+          <li>Day length: 10 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="saturn">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/saturn.jpg" alt="Saturn with its wide icy rings" width="400" height="400">
+        <figcaption>Saturn</figcaption>
+      </figure>
+          <p class="tagline">Light enough to float.</p>
+        </div>
+        <div class="card-back">
+          <h3>Saturn</h3>
+          <ul>
+          <li>Distance from Sun: 1.4 billion km</li>
+          <li>Moons: 146 and counting</li>
+          <li>Day length: 10.7 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="uranus">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/uranus.jpg" alt="Uranus, a pale blue-green planet" width="400" height="400">
+        <figcaption>Uranus</figcaption>
+      </figure>
+          <p class="tagline">Rolls around on its side.</p>
+        </div>
+        <div class="card-back">
+          <h3>Uranus</h3>
+          <ul>
+          <li>Distance from Sun: 2.9 billion km</li>
+          <li>Moons: 28</li>
+          <li>Day length: 17 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="planet-card" data-planet="neptune">
+      <div class="card-inner">
+        <div class="card-front">
+          <figure>
+        <img src="images/neptune.jpg" alt="Neptune, a deep blue planet" width="400" height="400">
+        <figcaption>Neptune</figcaption>
+      </figure>
+          <p class="tagline">Windy and far away.</p>
+        </div>
+        <div class="card-back">
+          <h3>Neptune</h3>
+          <ul>
+          <li>Distance from Sun: 4.5 billion km</li>
+          <li>Moons: 16</li>
+          <li>Day length: 16 hours</li>
+        </ul>
+        </div>
+      </div>
+    </article>
+
+
+    <!-------------------------------- JS interaction #1: weight calculator --------------------------------------------->
+    <section id = "calculator">
       <h2>What would you weigh there?</h2>
-      <!-- JS interaction #1: weight calculator -->
-      <div class="calc-box">
-        <label for="weight">Your weight on Earth (lbs)</label>
-        <input type="number" id="weight" min="1" placeholder="e.g. 120">
+      <div class = "calc-box">
+        <label for = "weight">Your weight on Earth (lbs)</label>
+        <input type = "number" id = "weight" min = "1" placeholder = "e.g. 120">
 
-        <label for="planet-select">Planet</label>
-        <select id="planet-select">
-          <option value="0.38">Mercury</option>
-          <option value="0.91">Venus</option>
-          <option value="1">Earth</option>
-          <option value="0.38">Mars</option>
-          <option value="2.53">Jupiter</option>
-          <option value="1.07">Saturn</option>
-          <option value="0.89">Uranus</option>
-          <option value="1.14">Neptune</option>
+        <label for = "planet-select">Planet</label>
+        <select id = "planet-select">
+          <option value = "0.38">Mercury</option>
+          <option value = "0.91">Venus</option>
+          <option value = "1">Earth</option>
+          <option value = "0.38">Mars</option>
+          <option value = "2.53">Jupiter</option>
+          <option value = "1.07">Saturn</option>
+          <option value = "0.89">Uranus</option>
+          <option value = "1.14">Neptune</option>
         </select>
 
-        <button class="btn" id="calc-btn" type="button">Calculate</button>
-        <p id="calc-result" aria-live="polite"></p>
+        <button class = "btn" id = "calc-btn" type = "button">Calculate</button>
+        <p id = "calc-result" aria-live = "polite"></p>
       </div>
     </section>
 
-    <!-- GRID SECTION 2: fact tiles -->
-    <section id="facts">
+    <!---------------------------------------- GRID SECTION 2: fact tiles ----------------------------------------------->
+    <section id = "facts">
       <h2>Space Facts</h2>
-      <div class="facts-grid">
-        <div class="fact-tile wide">
+      <div class = "facts-grid">
+        <div class = "fact-tile wide">
           <h3>One million Earths</h3>
           <p>The Sun is big enough to hold about a million Earths.</p>
         </div>
-        <div class="fact-tile">
+
+        <div class = "fact-tile">
           <h3>Hot Venus</h3>
           <p>Venus is the hottest planet, even though Mercury is closer to the Sun.</p>
         </div>
-        <div class="fact-tile">
+
+        <div class = "fact-tile">
           <h3>Long years</h3>
           <p>One year on Neptune lasts about 165 Earth years.</p>
         </div>
-        <div class="fact-tile">
+
+        <div class = "fact-tile">
           <h3>Footprints stay</h3>
           <p>There is no wind on the Moon, so footprints can last millions of years.</p>
         </div>
-        <div class="fact-tile">
+
+        <div class = "fact-tile">
           <h3>Rain of diamonds?</h3>
           <p>Scientists think it may rain diamonds deep inside Uranus and Neptune.</p>
         </div>
 
-        <!-- JS interaction #2: random fact button -->
-        <aside class="fact-tile wide highlight">
+        <!------------------------------------- JS interaction #2: random fact button ---------------------------------->
+        <aside class = "fact-tile wide highlight">
           <h3>Did you know?</h3>
-          <p id="random-fact">Press the button for a random space fact.</p>
-          <button class="btn" id="fact-btn" type="button">Surprise me</button>
+          <p id = "random-fact">Press the button for a random space fact.</p>
+          <button class = "btn" id = "fact-btn" type = "button">Surprise me</button>
         </aside>
       </div>
     </section>
 
   </main>
 
-  <footer id="footer">
+  <footer id = "footer">
     <p>Midterm Project by Nadia Rodriguez for the CIM 343 course at University of Miami. Images are from the <a href = "https://www.nasa.gov/">NASA</a> website.</p>
   </footer>
 
