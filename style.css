@@ -141,7 +141,11 @@
   .planet-card .tagline { margin: .2rem 0 0; opacity: .8; }
   
   /* Square cards: the image stretches to fill whatever space the text leaves */
-  .planet-card { aspect-ratio: 1 / 1; }
+  .planet-card {
+    width: var(--card-size);
+    height: var(--card-size);
+  }
+
   .card-inner { height: 100%; }
 
   .card-front { display: flex; flex-direction: column; }
@@ -197,7 +201,7 @@
 
   /* ------------------------------------- GRID SECTION 1: planets ---------------------------------------------------- */
   .planet-grid {
-    --card-size: 180px;   
+    --card-size: 300px;   
     display: grid;
     grid-template-columns: repeat(auto-fit, var(--card-size));
     justify-content: center;
@@ -216,11 +220,11 @@
   #facts h2,
   #facts h3,
    footer {
-    font-family: "Space-Mono", serif;
+    font-family: "Space Mono", monospace;
     }
 
   #facts p {
-    font-family: "Space-Mono", serif;
+    font-family: "Space Mono", monospace;
   }
   /* ---------- Hero (also a grid) ---------- */
   #hero {
