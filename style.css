@@ -1,0 +1,185 @@
+/* ---------- Design tokens ---------- */
+:root {
+    --night: #0c1024; /* page background */
+    --dusk: #1b2150; /*nav background*/
+    --chalk: #eef0ff; /* text color*/
+    --solar: #ffb347; /*accent color */
+    --ion: #6fe3d4; /* borders/links*/
+    --radius: 14px;
+  }
+  
+  /* ---------- TAG STYLING (requirement: 3+) ---------- */
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--chalk);
+    background-color: var(--night);
+
+    /* faint stars made from gradients */
+    background-image:
+      radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+      radial-gradient(1px 1px at 90px 120px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 160px 60px, var(--ion), transparent),
+      radial-gradient(1px 1px at 230px 170px, #fff, transparent);
+    background-size: 260px 200px;
+  }
+  
+  h1, h2, h3 {
+    font-family: "Syne", sans-serif;
+    line-height: 1.15;
+  }
+  h1 { font-size: clamp(2.2rem, 7vw, 4rem); margin: 0; color: var(--solar); }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 0 0 1rem; }
+  h3 { margin: 0 0 .4rem; }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+  
+  a { color: var(--ion); }
+  
+  button, input, select { font: inherit; }
+  
+  :focus-visible { outline: 3px solid var(--solar); outline-offset: 3px; }
+  
+  /* ---------- Layout basics ---------- */
+  header { padding: 2rem 1.25rem 1rem; text-align: center; }
+  header p { margin: .25rem 0 0; opacity: .8; }
+  
+  main { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  section { padding: 3rem 0; scroll-margin-top: 4rem; }
+  
+  footer { text-align: center; padding: 2rem 1rem; background: var(--dusk); }
+  
+  /* ---------- GRID NAV ---------- */
+  nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--dusk);
+    border-block: 1px solid rgba(255, 255, 255, .15);
+  }
+  nav a {
+    padding: .9rem .5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--chalk);
+    font-weight: 500;
+  }
+  nav a:hover { background: var(--solar); color: var(--night); }
+  
+  /* ---------- CLASSES (requirement: 3+) ---------- */
+  .btn {
+    display: inline-block;
+    padding: .7rem 1.4rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--solar);
+    color: var(--night);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  
+  .hero-text p { max-width: 60ch; }
+  
+  .planet-card {
+    background: var(--dusk);
+    border-radius: var(--radius);
+    padding: 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .planet-card:hover { border-color: var(--ion); box-shadow: 0 0 22px rgba(111, 227, 212, .3); }
+  .planet-card figcaption { font-family: "Syne", sans-serif; font-weight: 800; margin-top: .6rem; }
+  .planet-card .tagline { margin: .2rem 0 0; opacity: .8; }
+  .planet-card .details { display: none; margin-top: .6rem; font-size: .9rem; }
+  .planet-card.open .details { display: block; } /* JS toggles .open */
+  .planet-card ul { padding-left: 1.1rem; margin: 0; }
+  
+  .fact-tile {
+    background: var(--dusk);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+  .fact-tile.highlight { background: var(--solar); color: var(--night); }
+  .fact-tile.highlight .btn { background: var(--night); color: var(--chalk); }
+  
+  .calc-box {
+    display: grid;
+    gap: .6rem;
+    max-width: 420px;
+    padding: 1.5rem;
+    background: var(--dusk);
+    border-radius: var(--radius);
+  }
+  .calc-box input, .calc-box select {
+    padding: .6rem;
+    border-radius: 8px;
+    border: 0;
+  }
+  #calc-result { font-weight: 700; color: var(--solar); min-height: 1.5em; margin: 0; }
+  
+  /* ---------- GRID SECTION 1: planets ---------- */
+  .planet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  /* ---------- GRID SECTION 2: facts (different layout) ---------- */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .facts-grid .wide { grid-column: span 2; }
+  
+  #facts h2,
+  #facts h3,
+   footer {
+    font-family: "Fraunces", serif;
+    }
+
+#facts p {
+  font-family: "Lora", serif;
+}
+  /* ---------- Hero (also a grid) ---------- */
+  #hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .hero-figure { margin: 0; }
+  .hero-figure figcaption { font-size: .8rem; opacity: .7; margin-top: .4rem; }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    nav { grid-template-columns: repeat(3, 1fr); }
+    #hero { grid-template-columns: 1fr; }
+    .facts-grid { grid-template-columns: 1fr 1fr; }
+    .facts-grid .wide { grid-column: span 2; }
+  }
+  
+  @media (max-width: 480px) {
+    nav { grid-template-columns: repeat(2, 1fr); }
+    .facts-grid { grid-template-columns: 1fr; }
+    .facts-grid .wide { grid-column: auto; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
