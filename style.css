@@ -17,22 +17,48 @@
     line-height: 1.6;
     color: var(--chalk);
     background-color: var(--night);
+  }
 
-    /* faint stars made from gradients */
+  /* Twinkling stars */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-repeat: repeat;
+  }
+
+  body::before {
     background-image:
-      radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
-      radial-gradient(1px 1px at 90px 120px, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 160px 60px, var(--ion), transparent),
-      radial-gradient(1px 1px at 230px 170px, #fff, transparent);
+      radial-gradient(3px 3px at 20px 30px, #fff, transparent),
+      radial-gradient(2.5px 2.5px at 160px 60px, var(--ion), transparent),
+      radial-gradient(3.5px 3.5px at 230px 170px, #fff, transparent);
     background-size: 260px 200px;
+    animation: twinkle 2.5s ease-in-out infinite;
   }
   
+  body::after {
+    background-image:
+      radial-gradient(3px 3px at 90px 120px, #fff, transparent),
+      radial-gradient(3.5px 3.5px at 190px 20px, var(--solar), transparent),
+      radial-gradient(2.5px 2.5px at 40px 180px, #fff, transparent);
+    background-size: 310px 240px;
+    animation: twinkle 4s ease-in-out infinite 1.2s;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: .05; }
+  }
+
   h1, h2, h3 {
     font-family: "Syne", sans-serif;
-    line-height: 1.15;
+    line-height: 1.20;
   }
   h1 { font-size: clamp(2.2rem, 7vw, 4rem); margin: 0; color: var(--solar); }
-  h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 0 0 1rem; }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 0 0 1.5rem; }
   h3 { margin: 0 0 .4rem; }
   
   img {
@@ -191,12 +217,14 @@
     background: var(--dusk);
     border-radius: var(--radius);
   }
+
   .calc-box input, .calc-box select {
     padding: .6rem;
     border-radius: 8px;
     border: 0;
   }
-  #calc-result { font-weight: 700; color: var(--solar); min-height: 1.5em; margin: 0; }
+
+  #calc-result { font-weight: 700; color: var(--solar); min-height: 1.5em; margin: 0;}
   /* -------------------------------------------- Planet Calculator ----------------------------------------------------*/
 
   /* ------------------------------------- GRID SECTION 1: planets ---------------------------------------------------- */
@@ -214,7 +242,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-.facts-grid .wide { grid-column: span 2; }
+
+  .facts-grid .wide { grid-column: span 2; }
 
   
   #facts h2,
@@ -226,6 +255,7 @@
   #facts p {
     font-family: "Space Mono", monospace;
   }
+
   /* ---------- Hero (also a grid) ---------- */
   #hero {
     display: grid;
@@ -233,6 +263,7 @@
     gap: 2rem;
     align-items: center;
   }
+
   .hero-figure { margin: 0; }
   .hero-figure figcaption { font-size: .8rem; opacity: .7; margin-top: .4rem; }
   
@@ -253,4 +284,5 @@
   /* ADA Compliant ? Meant to help people who don't want the motion/ have reduced motion settings on */
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
+    body::before, body::after { animation: none; }
   }

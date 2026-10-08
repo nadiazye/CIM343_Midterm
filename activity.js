@@ -10,11 +10,38 @@ document.querySelectorAll('.planet-card').forEach(function (card) {
       e.preventDefault();
       card.classList.toggle('flipped');
     }
+    });
   });
-});
 
-  // 2. Weight calculator: TODO
-  //    Read #weight and #planet-select, multiply them, show text in #calc-result.
+// 2. Weight calculator
+  const weightInput = document.getElementById('weight');
+  const planetSelect = document.getElementById('planet-select');
+  const calcBtn = document.getElementById('calc-btn');
+  const calcResult = document.getElementById('calc-result');
+
+  function calculateWeight() {
+  const userWeight = Number(weightInput.value)
+  const planetWeight = Number(planetSelect.value)
+
+  if (!userWeight || userWeight <= 0) {
+    calcResult.textContent = "Please enter a number above 0.";
+    return;
+  }
+
+  const newWeight = (userWeight * planetWeight).toFixed(1);
+  const planetName = planetSelect.options[planetSelect.selectedIndex].text;
+
+  calcResult.textContent = "On " + planetName + " you would weigh " + newWeight + " lbs.";
+}
+
+// Run calculateWeight when the button is clicked
+  calcBtn.addEventListener('click', calculateWeight);
+
+  weightInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      calculateWeight();
+    }
+  });
   
 // ----------------------------------------Fun Fact Button/ The Facts ----------------------------------------------------
   const factBtn = document.getElementById("fact-btn");
