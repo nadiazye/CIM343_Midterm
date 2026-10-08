@@ -277,6 +277,7 @@
   
   @media (max-width: 480px) {
     nav { grid-template-columns: repeat(2, 1fr); }
+    nav a:last-child { grid-column: span 2; }
     .facts-grid { grid-template-columns: 1fr; }
     .facts-grid .wide { grid-column: auto; }
   }
